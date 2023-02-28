@@ -10,24 +10,24 @@ def binary_search(keys, query):
     #find initial midpoint
     indexMidKeys= math.floor(num_keys/2)
 
-    finalList = []
+    #finalList = []
     count = 0
     while count<num_queries:
     #have to include a condition for what to do if the number isn't in the list 
         if indexMidKeys == 0 and input_queries[count] != input_keys[indexMidKeys]:
-            finalList.append(-1)
+            input_queries[count]=-1
             count+=1
         elif indexMidKeys==num_keys-1  and input_queries[count] != input_keys[indexMidKeys]:
-            finalList.append(-1)
+            input_queries[count]=-1
             count+=1
         elif input_queries[count] == input_keys[indexMidKeys]:
-            finalList.append(input_keys.index(input_keys[indexMidKeys]))
+            input_queries[count]=(input_keys.index(input_keys[indexMidKeys]))
             count+=1
         elif input_queries[count] < input_keys[indexMidKeys]:
             indexMidKeys = math.floor((indexMidKeys/2))
         else: 
             indexMidKeys= math.floor((num_keys - indexMidKeys/2)+indexMidKeys)
-    return finalList
+
 
 if __name__ == '__main__':
     num_keys = int(input())
